@@ -670,7 +670,7 @@ button:hover{
         grid-template-columns: 110px 1fr;
     }
 }
-/* From Uiverse.io by boryanakrasteva */ 
+
 .input-container {
   width: 220px;
   position: relative;
@@ -922,14 +922,7 @@ button:hover{
     object-position: center;
     display: block;
 }
-.why-overlay {
-    position: absolute;
-    left: 30px;
-    bottom: 30px;
 
-    z-index: 5;
-    color: white;
-}
 .why-icon {
     display: block;
 
@@ -1170,24 +1163,20 @@ button:hover{
     min-width: 350px;
 }
 
-.footer-socials {
+.social-icons {
     display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.footer-socials a {
-    display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 30px;
+
+    margin-bottom: 25px;
 }
 
-.footer-socials img {
-    width: 28px;
-    height: 28px;
+.social-icons a {
+    color: white;
+    text-decoration: none;
 
-    object-fit: contain;
-    display: block;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 
@@ -1735,7 +1724,7 @@ button:hover{
     align-items: center;
     justify-content: space-between;
 
-    padding: 40px 10% 0;
+    padding: 65px 10% 0;
 }
 
 .nav-logo {
@@ -1936,4 +1925,51 @@ nav.nav-fixed {
 
 nav.nav-hidden {
     transform: translateY(-100%);
+}
+/* ===== FIX BOTTOM FOOTER SOCIAL ICONS ===== */
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-socials a {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-socials img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* ===== FIX COMMUNITY SOCIAL ICONS ===== */
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
