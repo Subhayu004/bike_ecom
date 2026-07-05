@@ -13,18 +13,69 @@
 
     <div class="hero" id="hero">
 
-        <nav>
-            <img src="bikelogo.png" width="115px" alt="Logo">
+       <nav class="navbar">
 
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <button type="button">Sign Up / Login</button>
-        </nav>
+    <!-- Mobile hamburger -->
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileDrawer"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
+    <!-- Logo -->
+    <a href="#" class="nav-logo">
+        <img src="bikelogo.png" alt="Sarah">
+    </a>
+
+    <!-- Desktop navigation -->
+    <ul class="desktop-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <!-- Desktop login -->
+    <button class="login-btn" type="button">
+        Sign Up / Login
+    </button>
+
+</nav>
+<div class="mobile-drawer" id="mobileDrawer">
+
+    <div class="drawer-header">
+
+        <img src="bikelogo.png" alt="Sarah">
+
+        <button
+            class="close-btn"
+            id="closeBtn"
+            type="button"
+            aria-label="Close navigation menu"
+        >
+            &times;
+        </button>
+
+    </div>
+
+    <div class="drawer-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Sign Up / Login</a>
+    </div>
+
+</div>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
 
         <!-- CAROUSEL GOES HERE -->
  <section class="bike-carousel">
@@ -194,7 +245,7 @@
             >
 
             <div class="featured-info">
-                <h3>ViaTerra Grid Gloves</h3>
+                <h3>Riding Helmet</h3>
                 <p class="price">₹ 4,999</p>
             </div>
 
@@ -298,27 +349,27 @@ Collections</i></h1>
     <div class="collections-grid">
 
         <a href="#" class="collection-card">
-            <img src="./images/adventure1.jpg" alt="Adventure Riding">
+            <img src="./grid/adv.jpg" alt="Adventure Riding">
             <div class="collection-name">ADVENTURE</div>
         </a>
 
         <a href="#" class="collection-card">
-            <img src="./images/adventure2.jpg" alt="Off Road Riding">
+            <img src="./grid/offroad.avif" alt="Off Road Riding">
             <div class="collection-name">OFF ROAD</div>
         </a>
 
         <a href="#" class="collection-card">
-            <img src="./images/adventure3.jpg" alt="Touring">
+            <img src="./grid/touring.jpg" alt="Touring">
             <div class="collection-name">TOURING</div>
         </a>
 
         <a href="#" class="collection-card">
-            <img src="./images/adventure4.jpg" alt="Luggage">
+            <img src="./grid/tour.jpg" alt="Luggage">
             <div class="collection-name">LUGGAGE</div>
         </a>
 
         <a href="#" class="collection-card">
-            <img src="./images/adventure5.jpg" alt="Street Riding">
+            <img src="./grid/street.jpg" alt="Street Riding">
             <div class="collection-name">STREET</div>
         </a>
 
@@ -328,7 +379,7 @@ Collections</i></h1>
 <section class="why-section">
 
     <div class="why-header">
-        <h2>WHY CHOOSE VIATERRA?</h2>
+        <h2>WHY CHOOSE SARAH?</h2>
         <p>
             Honest, functional, rider-first gear—designed for the road
             and those who live to explore it.
@@ -341,7 +392,7 @@ Collections</i></h1>
             <img src="./prod/im5.webp" alt="Purpose Built">
 
             <div class="why-overlay">
-                <span class="why-icon">⚙</span>
+                <span class="why-icon"><img src="./gl/gear.png"></span>
                 <h3>Purpose<br><strong>Built</strong></h3>
             </div>
         </div>
@@ -350,7 +401,9 @@ Collections</i></h1>
             <img src="./prod/im2.webp" alt="Trusted Since 2010">
 
             <div class="why-overlay">
-                <span class="why-icon">●</span>
+                <span class="why-icon">
+                    <img src="./gl/shield.png">
+                </span>
                 <h3>Trusted<br><strong>Since 2010</strong></h3>
             </div>
         </div>
@@ -359,7 +412,9 @@ Collections</i></h1>
             <img src="./prod/bag.jpg" alt="Genuine Materials">
 
             <div class="why-overlay">
-                <span class="why-icon">◆</span>
+                <span class="why-icon">
+                    <img src="./gl/thumb.png">
+                </span>
                 <h3>Genuine<br><strong>Materials</strong></h3>
             </div>
         </div>
@@ -368,7 +423,9 @@ Collections</i></h1>
             <img src="./prod/gloves.webp" alt="Zero Hassle Returns">
 
             <div class="why-overlay">
-                <span class="why-icon">▣</span>
+                <span class="why-icon">
+                    <img src="./gl/return.png">
+                </span>
                 <h3>Zero Hassle<br><strong>Returns</strong></h3>
             </div>
         </div>
@@ -469,12 +526,19 @@ Collections</i></h1>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Third-Party Intellectual Property Disclaimer</a>
             </div>
+<div class="footer-socials">
+    <a href="#" aria-label="Facebook">
+        <img src="./socials/fb.png" alt="Facebook">
+    </a>
 
-            <div class="footer-socials">
-                <a href="#">f</a>
-                <a href="#">◎</a>
-                <a href="#">▶</a>
-            </div>
+    <a href="#" aria-label="Instagram">
+        <img src="./socials/insta.png" alt="Instagram">
+    </a>
+
+    <a href="#" aria-label="YouTube">
+        <img src="./socials/youtube.png" alt="YouTube">
+    </a>
+</div>
 
         </div>
 

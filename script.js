@@ -100,3 +100,118 @@ prevButton.addEventListener("click", () => {
 // INITIAL SETUP
 updateCarousel();
 startAutoSlide();
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const mobileDrawer = document.getElementById("mobileDrawer");
+const drawerBackdrop = document.getElementById("drawerBackdrop");
+
+function openDrawer() {
+    mobileDrawer.classList.add("open");
+    drawerBackdrop.classList.add("show");
+
+    menuBtn.setAttribute("aria-expanded", "true");
+
+    document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+    mobileDrawer.classList.remove("open");
+    drawerBackdrop.classList.remove("show");
+
+    menuBtn.setAttribute("aria-expanded", "false");
+
+    document.body.style.overflow = "";
+}
+
+menuBtn.addEventListener("click", openDrawer);
+
+closeBtn.addEventListener("click", closeDrawer);
+
+drawerBackdrop.addEventListener("click", closeDrawer);
+
+
+/* Close drawer after clicking a navigation link */
+document.querySelectorAll(".drawer-links a").forEach(link => {
+    link.addEventListener("click", closeDrawer);
+});
+
+
+/* Close with Escape key */
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeDrawer();
+    }
+});
+const navbar = document.querySelector("nav");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+
+    const currentScrollY = window.scrollY;
+
+    /* At the top of the page */
+    if (currentScrollY <= 50) {
+        navbar.classList.remove("nav-fixed");
+        navbar.classList.remove("nav-hidden");
+
+        lastScrollY = currentScrollY;
+        return;
+    }
+
+    /* Make navbar fixed after leaving the top */
+    navbar.classList.add("nav-fixed");
+
+    if (currentScrollY > lastScrollY) {
+        /* Scrolling DOWN → show navbar */
+        navbar.classList.remove("nav-hidden");
+    } else {
+        /* Scrolling UP → hide navbar */
+        navbar.classList.add("nav-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+});
+const collectionsSlider = document.querySelector(".collections-grid");
+
+let isDragging = false;
+let startX = 0;
+let startScrollLeft = 0;
+
+collectionsSlider.addEventListener("pointerdown", (event) => {
+    isDragging = true;
+
+    collectionsSlider.classList.add("dragging");
+
+    startX = event.clientX;
+    startScrollLeft = collectionsSlider.scrollLeft;
+
+    collectionsSlider.setPointerCapture(event.pointerId);
+});
+
+collectionsSlider.addEventListener("pointermove", (event) => {
+    if (!isDragging) return;
+
+    const distance = event.clientX - startX;
+
+    collectionsSlider.scrollLeft =
+        startScrollLeft - distance;
+});
+
+function stopDragging(event) {
+    if (!isDragging) return;
+
+    isDragging = false;
+
+    collectionsSlider.classList.remove("dragging");
+
+    if (
+        event.pointerId !== undefined &&
+        collectionsSlider.hasPointerCapture(event.pointerId)
+    ) {
+        collectionsSlider.releasePointerCapture(event.pointerId);
+    }
+}
+
+collectionsSlider.addEventListener("pointerup", stopDragging);
+collectionsSlider.addEventListener("pointercancel", stopDragging);
